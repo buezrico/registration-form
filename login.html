@@ -12,13 +12,13 @@
     <div class="container vh-100 px-5">
         <div class="row h-100 justify-content-center">
             <div class="card shadow my-auto">
-                <div class="card-header text-center bg-primary text-light w-100">
+                <div class="card-header text-center bg-info text-light w-100">
                    <h3>Student Registration Form</h2>
                 </div>
                 <div class="card-body">
                     <form action="connect.php" method='post' class="row">
 
-                        <div class="form-group mb-3 col-md-3">
+                        <div class="form-group mb-3 col-md-4">
                             <label for='mat_no'>Mat No</label>
                             <div class="input-group">
                                 <span class="input-group-text" id="basic-addon1">DE</span>
@@ -27,18 +27,21 @@
                             </div>
                         </div>
 
-                        <div class="form-group mb-3 col-md-9">
-                            <label for='full_name'>Full Name</label>
-                            <input type="text" id='full_name' class="form-control" name=full_name required/>
+                        <div class="form-group mb-3 col-md-4">
+                            <label for='first_name'>First Name</label>
+                            <input type="text" id='first_name' class="form-control" name=first_name required/>
                         </div>
 
-                        <div class="form-group mb-3">
+                        <div class="form-group mb-3 col-md-4">
+                            <label for='last_name'>Last Name</label>
+                            <input type="text" id='last_name' class="form-control" name=last_name required />
+                        </div>
+
+                       
+
+                        <div class="form-group mb-3 col-md-12">
                             <label for='email'>Email Address</label>
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="your school email address" aria-label="email" id='email' name="email"
-                                aria-describedby="basic-addon1">
-                                <span class="input-group-text" id="basic-addon1">@ust.edu.ng</span>
-                            </div>
+                            <input type="text" id='email' class="form-control" name=email required />
                         </div>
 
                         
