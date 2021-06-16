@@ -1,0 +1,43 @@
+:root {
+  --primary: #d6e9f7;
+}
+.body-title {
+  background: #004b81;
+  color: white;
+  padding: 0.4rem;
+}
+.body-nav {
+  background: #4db1ff;
+  color: white;
+}
+.body-nav ul {
+  width: 35%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1rem;
+}
+.body-nav ul .active {
+  background: #d6e9f7;
+  color: black;
+}
+.body-nav ul li {
+  padding: 0.5rem;
+}
+.content {
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem;
+}
+.content .students {
+  width: 40%;
+  border: 3px solid var(--primary);
+  padding: 0.5rem 1rem;
+}
+
+.content .student-registration {
+  width: 50%;
+  padding: 0.5rem 1rem;
+}
+.male {
+  margin-right: 1rem;
+}
