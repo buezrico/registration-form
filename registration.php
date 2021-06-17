@@ -85,7 +85,7 @@
                     </div>
                 </div>
                 <div class="d-flex justify-content-center mt-3">
-                    <a href="home.php"><button class="btn btn-success">Go back</button></a>
+                    <a href="home.php"><button class="btn btn-success">View Students List</button></a>
                 </div>
     </div>
         </div>

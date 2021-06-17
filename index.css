@@ -25,13 +25,14 @@
   padding: 0.5rem;
 }
 .content {
-  /* display: flex; */
-  /* justify-content: space-around; */
-  /* padding: 2rem; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem;
 }
 .content .students {
-  /* width: 80%; */
-  /* padding: 0.5rem 1rem; */
+  width: 80%;
+  padding: 0.5rem 1rem;
 }
 .male {
   margin-right: 1rem;

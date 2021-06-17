@@ -18,10 +18,7 @@
                 <div class="card-header bg-info text-light">
                     <h6 class=''>STUDENTS LIST</h6>
                 </div>
-                <div class='buttons m-3'>
-                    <a href="registration.php"><button class="btn btn-success">Add Student</button></a>
-                    <button class="btn btn-primary "disabled>Remove Student</button>
-                </div>
+                
             <div class="student-list">
                 <?php
                 $servername = "localhost";
@@ -36,7 +33,7 @@
                     die("Connection failed: " . $conn->connect_error);
                 }
 
-                $sql = "SELECT mat_no, first_name, last_name, email, phone_number, 'level', sex FROM students";
+                $sql = "SELECT mat_no, first_name, last_name, email, phone_number, level, sex FROM students";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
@@ -45,6 +42,10 @@
                         <tr>
                             <th>Mat No</th>
                             <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone Number</th>
+                            <th>Level</th>
+                            <th>Sex</th>
                         </tr>";
                     // output data of each row
                     while($row = $result->fetch_assoc()) {
@@ -71,7 +72,10 @@
             </div>
 
 
-
+<div class='buttons m-3'>
+                    <a href="registration.php"><button class="btn btn-success">Add Student</button></a>
+                    <button class="btn btn-primary "disabled>Remove Student</button>
+                </div>
     
         </div>
     </div>
