@@ -15,7 +15,6 @@
          $stmt->bind_param("ssssiis", $mat_no, $first_name, $last_name, $email, $phone_number, $level, $sex);
          $stmt->execute();
          echo 'YOU HAVE SUCCESSFULLY REGISTERED '. $first_name . ' AS A STUDENT, Go back and Refresh to view Students List View Student List';
-        // echo confirm("You have created a new batch");
         $conn->close();
         $stmt->close();
      }

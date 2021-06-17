@@ -12,17 +12,7 @@
 </head>
 
 <body class="">
-    <div class="body-title">
-        <small class="text-uppercase"><strong>Group 12 Admin Dashboard</strong></small>
-    </div>
-    <div class="body-nav">
-        <ul class="nav">
-            <li class="active"><a>Admin</a></li>
-            <li><a>Student</a></li>
-            <li><a>Courses</a></li>
-            <li><a>Results</a></li>
-        </ul>
-    </div>
+    <?php include('header.php'); ?>
     <div class="content ">
         <div class="students card shadow">
                 <div class="card-header bg-info text-light">
@@ -54,7 +44,7 @@
                         </tr>";
                     // output data of each row
                     while($row = $result->fetch_assoc()) {
-                        echo "<tr><td>" . $row["mat_no"]. "</td><td>" . $row["first_name"]. " " . $row["last_name"]. "</td></tr>";
+                        echo "<tr><a href='viewStudents.php'><td>" . $row["mat_no"]. "</td></a><td>" . $row["first_name"]. " " . $row["last_name"]. "</td></tr>";
                     }
                     echo "</table>";
                 } else {
@@ -67,29 +57,6 @@
             </div>
 
 
-        <?php
-    $mat_no = $_POST['mat_no'];
-    $first_name = $_POST['first_name'];
-    $last_name = $_POST['last_name'];
-    $email = $_POST['email'];
-    $phone_number = $_POST['phone_number'];
-    $level = $_POST['level'];
-    $sex = $_POST['sex'];
-
-     $conn2 = new mysqli('localhost', 'root', '', 'trial');
-     if ($conn2->connect_error){
-         die('Connection Failed : '.$conn2->connect_error);
-     }else{
-         $stmt = $conn2->prepare("insert into students(mat_no, first_name, last_name, email, phone_number, level, sex) values(?,?,?,?,?,?,?)"); 
-         $stmt->bind_param("ssssiis", $mat_no, $first_name, $last_name, $email, $phone_number, $level, $sex);
-         $stmt->execute();
-        //  echo 'YOU HAVE SUCCESSFULLY REGISTERED '. $first_name . ' AS A STUDENT, Go back and Refresh to view Students List View Student List';
-        // echo confirm("You have created a new batch");
-        $conn2->close();
-        $stmt->close();
-     }
-?>
-
 
         <div class="student-registration">
             <div class="container px-5">
@@ -99,7 +66,7 @@
                    <h4>STUDENT REGISTRATION FORM</h2>
                 </div>
                 <div class="card-body">
-                    <form action="home.php" method='post' class="row">
+                    <form action="connect.php" method='post' class="row">
 
                         <div class="form-group mb-3 col-md-4">
                             <label for='mat_no'>Mat No</label>
