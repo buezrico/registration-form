@@ -1,6 +1,7 @@
 :root {
   --primary: #d6e9f7;
 }
+
 .body-title {
   background: #004b81;
   color: white;
@@ -24,19 +25,13 @@
   padding: 0.5rem;
 }
 .content {
-  display: flex;
-  justify-content: space-around;
-  padding: 2rem;
+  /* display: flex; */
+  /* justify-content: space-around; */
+  /* padding: 2rem; */
 }
 .content .students {
-  width: 40%;
-  border: 3px solid var(--primary);
-  padding: 0.5rem 1rem;
-}
-
-.content .student-registration {
-  width: 50%;
-  padding: 0.5rem 1rem;
+  /* width: 80%; */
+  /* padding: 0.5rem 1rem; */
 }
 .male {
   margin-right: 1rem;

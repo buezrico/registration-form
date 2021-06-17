@@ -14,7 +14,7 @@
          $stmt = $conn->prepare("insert into students(mat_no, first_name, last_name, email, phone_number, level, sex) values(?,?,?,?,?,?,?)"); 
          $stmt->bind_param("ssssiis", $mat_no, $first_name, $last_name, $email, $phone_number, $level, $sex);
          $stmt->execute();
-         echo 'YOU HAVE SUCCESSFULLY REGISTERED '. $first_name . ' AS A STUDENT, Go back and Refresh to view Students List View Student List';
+         echo "<p>YOU HAVE SUCCESSFULLY REGISTERED <strong>$first_name</strong> AS A STUDENT, Go back and Refresh to view Students List View Student List</p><a href='home.php'><button>View Student List</button></a> ";
         $conn->close();
         $stmt->close();
      }

@@ -7,16 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <title>Login Page</title>
+    <title>Admin Page</title>
     <link rel="stylesheet" href="index.css">
 </head>
 
 <body class="">
     <?php include('header.php'); ?>
     <div class="content ">
-        <div class="students card shadow">
+        <div class="students shadow">
                 <div class="card-header bg-info text-light">
-                    <h4 class=''>STUDENTS LIST</h4>
+                    <h6 class=''>STUDENTS LIST</h6>
+                </div>
+                <div class='buttons m-3'>
+                    <a href="registration.php"><button class="btn btn-success">Add Student</button></a>
+                    <button class="btn btn-primary "disabled>Remove Student</button>
                 </div>
             <div class="student-list">
                 <?php
@@ -32,7 +36,7 @@
                     die("Connection failed: " . $conn->connect_error);
                 }
 
-                $sql = "SELECT mat_no, first_name, last_name FROM students";
+                $sql = "SELECT mat_no, first_name, last_name, email, phone_number, 'level', sex FROM students";
                 $result = $conn->query($sql);
 
                 if ($result->num_rows > 0) {
@@ -44,92 +48,31 @@
                         </tr>";
                     // output data of each row
                     while($row = $result->fetch_assoc()) {
-                        echo "<tr><a href='viewStudents.php'><td>" . $row["mat_no"]. "</td></a><td>" . $row["first_name"]. " " . $row["last_name"]. "</td></tr>";
+                        echo "
+                        <tr>
+                            <td>" . $row["mat_no"]. "</td>
+                            <td>" . $row["first_name"]. " " . $row["last_name"]. "</td>
+                            <td>" . $row["email"]. "</td>
+                            <td>" . $row["phone_number"]. "</td>
+                            <td>" . $row["level"]. "</td>
+                            <td>" . $row["sex"]. "</td>
+                        </tr>";
                     }
                     echo "</table>";
                 } else {
-                    echo "0 results";
+                    echo "No Student Found";
                 }
 
                 $conn->close();
                 ?>
+
+                
                 </div>
             </div>
 
 
 
-        <div class="student-registration">
-            <div class="container px-5">
-        <div class="row">
-            <div class="card shadow">
-                <div class="card-header text-center bg-info text-light w-100">
-                   <h4>STUDENT REGISTRATION FORM</h2>
-                </div>
-                <div class="card-body">
-                    <form action="connect.php" method='post' class="row">
-
-                        <div class="form-group mb-3 col-md-4">
-                            <label for='mat_no'>Mat No</label>
-                            <div class="input-group">
-                                <span class="input-group-text" id="basic-addon1">DE</span>
-                                <input type="text" class="form-control" placeholder="0000/1234" aria-label="mat_no" id='mat_no' name='mat_no'
-                                    aria-describedby="basic-addon1">
-                            </div>
-                        </div>
-
-                        <div class="form-group mb-3 col-md-4">
-                            <label for='first_name'>First Name</label>
-                            <input type="text" id='first_name' class="form-control" name=first_name required/>
-                        </div>
-
-                        <div class="form-group mb-3 col-md-4">
-                            <label for='last_name'>Last Name</label>
-                            <input type="text" id='last_name' class="form-control" name=last_name required />
-                        </div>
-
-                       
-
-                        <div class="form-group mb-3 col-md-12">
-                            <label for='email'>Email Address</label>
-                            <input type="text" id='email' class="form-control" name=email required />
-                        </div>
-
-                        
-
-                        <div class="form-group mb-3 col-md-6">
-                            <label for='phone_number'>Phone Number</label>
-                            <div class="input-group">
-                                <span class="input-group-text" id="basic-addon1">+234</span>
-                                <input type="tel" class="form-control" placeholder="81234567890" name='phone_number' aria-label="phone_number" id='phone_number'
-                                    aria-describedby="basic-addon1">
-                            </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <label for="level" class="">Level</label>
-                            <select id="level" class="form-select" name="level">
-                                <option selected>Choose level...</option>
-                                <option>100</option>
-                                <option>200</option>
-                                <option>300</option>
-                                <option>400</option>
-                            </select>
-                        </div>
-                        <div class="input-group mb-3">
-                            <label for='male' class='male'><input class='' type="radio" id='male'  name='sex' value="m"/>Male</label>
-                            <label for='female' class=''><input type="radio" id='female'  name='sex' value="f"/>Female</label>
-                        </div>
-                        <input type="submit" class="btn btn-primary mb-3 w-100" value="Sign Up">
-                    </form>
-                </div>
-                <div class="card-footer text-center">
-                    <small>
-                        &copy; Group 12 CMS 445
-                    </small>
-                </div>
-            </div>
-        </div>
-    </div>
+    
         </div>
     </div>
 </body>
